@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+
+  <tbody id="entry-list">
+  <tr>
+    <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+    <td><%= text_field_tag :search, params[:search], placeholder: "Search Posts" %></td>
+    <td><%= submit_tag "Search" %></td>
+    <% end %>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><h1>Entries</h1></td>
+  </tr>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><b><h3><%= post.name %></b></h3></td>
+      </tr>
+      <tr>
+        <td><%= post.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
